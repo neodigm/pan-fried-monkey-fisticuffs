@@ -1,5 +1,7 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![npm](https://img.shields.io/npm/dt/vue-simple-drawer.svg?style=flat)
 # pan-fried-monkey-fisticuffs
-A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves
+A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves 🐒
 
 ![](https://neodigm.github.io/pan-fried-monkey-fisticuffs/img/pan_fried_monkey_fisticuffs_logo_640_1280.jpg)
 
