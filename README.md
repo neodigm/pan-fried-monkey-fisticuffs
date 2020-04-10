@@ -1,6 +1,8 @@
 # pan-fried-monkey-fisticuffs
 A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves
 
+![](https://neodigm.github.io/pan-fried-monkey-fisticuffs/img/pan_fried_monkey_fisticuffs_logo_640_1280.jpg)
+
 [Portfolio](https://www.theScottKrause.com) |
 [Github](https://github.com/neodigm) |
 [LinkedIn](https://www.linkedin.com/in/neodigm24/) |
