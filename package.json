@@ -1,0 +1,25 @@
+{
+  "name": "pan-fried-monkey-fisticuffs",
+  "version": "1.0.0",
+  "description": "A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves 🐒",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neodigm/pan-fried-monkey-fisticuffs.git"
+  },
+  "keywords": [
+    "gamification"
+  ],
+  "author": "Scott C. Krause",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/neodigm/pan-fried-monkey-fisticuffs/issues"
+  },
+  "homepage": "https://github.com/neodigm/pan-fried-monkey-fisticuffs#readme",
+  "devDependencies": {
+    "cypress": "^3.4.1"
+  }
+}
