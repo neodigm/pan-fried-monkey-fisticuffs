@@ -16,7 +16,9 @@ border: solid 1px #666;
 box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 .l-reveal .reveal__scrim {
-background-color: #000;
+    background: linear-gradient(rgba(228,198,126,.32),rgba(188,130,19,.68));
+    background-position: 50% 0;
+    background-size: cover;
 cursor: pointer;
 display: block!important;
 opacity: .4;
