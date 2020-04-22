@@ -6,6 +6,7 @@ A gamified vanilla JavaScript micro-interaction library for those who defiantly 
 
 [Portfolio](https://www.theScottKrause.com) |
 [Blog](https://www.theScottKrause.com/WebAssembly) |
+[NPM](https://www.npmjs.com/~neodigm) |
 [Github](https://github.com/neodigm) |
 [LinkedIn](https://www.linkedin.com/in/neodigm24/) |
 [Salesforce](https://trailblazer.me/id/skrause) |
