@@ -57,3 +57,14 @@ color: #444!important;
 	top: -24px;
 	right: -38px;
 }
+
+@media only screen and (min-width:48.1em) and (max-width:62em){/* med */
+    .l-reveal .small {
+        width: 78%;
+    }
+}
+@media only screen and (min-width:62.1em){/* lg */
+    .l-reveal .small {
+        width: 78%;
+    }
+}
