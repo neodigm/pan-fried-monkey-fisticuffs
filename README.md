@@ -5,7 +5,7 @@ A gamified vanilla JavaScript micro-interaction library for those who defiantly 
 ![](https://neodigm.github.io/pan-fried-monkey-fisticuffs/img/pan_fried_monkey_fisticuffs_logo_640_1280.jpg)
 
 <p align="center">
-Punch Sauce and Chump Change
+Punch Sauce with Chump Change
 </p>
 
 ![](https://repository-images.githubusercontent.com/178555357/2b6ad880-7aa0-11ea-8dde-63e70187e3e9)
