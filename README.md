@@ -1,6 +1,6 @@
 [![License: BSD](https://badgen.net/badge/license/BSD/orange)](https://opensource.org/licenses/BSD-3-Clause)
 # pan-fried-monkey-fisticuffs
-A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves 🐒
+A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves! 🐒
 
 ![](https://neodigm.github.io/pan-fried-monkey-fisticuffs/img/pan_fried_monkey_fisticuffs_logo_640_1280.jpg)
 
