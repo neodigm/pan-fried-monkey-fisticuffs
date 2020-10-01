@@ -1,6 +1,6 @@
 {
   "name": "pan-fried-monkey-fisticuffs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves 🐒",
   "main": "index.js",
   "scripts": {
