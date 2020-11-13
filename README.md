@@ -2,7 +2,11 @@
 # Pan Fried Monkey Fisticuffs
 A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves! 🐒
 
-![](https://neodigm.github.io/pan-fried-monkey-fisticuffs/img/pan_fried_monkey_fisticuffs_logo_640_1280.jpg)
+<p align="center">
+  <a target="_blank" href="https://thescottkrause.com/tags/javascript/">
+  <img src="https://neodigm.github.io/pan-fried-monkey-fisticuffs/img/pan_fried_monkey_fisticuffs_logo_640_1280.jpg" title="D3js Skills with Audio ✨ JavaScript && TypeScript && Go 🪐">
+  </a>
+</p>
 
 #
 [Portfolio Blog](https://www.theScottKrause.com) |
