@@ -4,7 +4,7 @@ A gamified vanilla JavaScript micro-interaction library for those who defiantly 
 
 [Multi-touch_interaction.html](https://neodigm.github.io/pan-fried-monkey-fisticuffs/Multi-touch_interaction.html)
 
-[Pinch_zoom_gestures.html](/Users/neodigm/2020/pan-fried-monkey-fisticuffs/Pinch_zoom_gestures.html)
+[Pinch_zoom_gestures.html](https://neodigm.github.io/pan-fried-monkey-fisticuffs/Pinch_zoom_gestures.html)
 
 <p align="center">
   <a target="_blank" href="https://thescottkrause.com/tags/javascript/">
