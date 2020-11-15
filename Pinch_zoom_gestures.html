@@ -144,14 +144,14 @@ function init() {
  <output></output>
 
  <hr>
-  <section  style="touch-action:none"
+  <section style="touch-action:none"
   data-panzoom="true">
-    <img src="https://neodigm.github.io/brand_logo_graphic_design/fantastic/discerning/4.webp">
+    <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm1.jpg">
   </section>
  <hr>
-  <section  style="touch-action:none"
+  <section style="touch-action:none"
   data-panzoom="true">
-    <img src="https://neodigm.github.io/brand_logo_graphic_design/fantastic/discerning/3.webp">
+    <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
   </section>
 <hr>
 
@@ -159,12 +159,13 @@ function init() {
 
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
+  let nXYdiff = -1;
   return {
     "init": (sQuery)=>{
       let aTarg = _d.querySelectorAll( sQuery );
       aTarg.forEach( ( eTarg )=>{
         let eImg = eTarg.querySelector( "img" );
-        eTarg.aEv = [];
+        eTarg.aEv = [1,2,3];
         aElem.push( eTarg );
         eTarg.onpointerdown = fPanZ.pointDown;
         eTarg.onpointermove = fPanZ.pointMove;
@@ -175,16 +176,18 @@ let fPanZ = ((_d)=>{
       });
       return ( aTarg.length !== 0 );
     },
-    "pointDown": function(ev){ console.log( ev ); //eTarg.aEv.push( ev )
+    "pointDown": function(ev){ console.log( ev.pointerId ); //eTarg.aEv.push( ev )
      },
-    "pointMove": function(ev){ console.log( this ); //eTarg.aEv.push( ev )
+    "pointMove": function(ev){ console.log( this.aEv ); //eTarg.aEv.push( ev )
      },
     "pointUp":   function(ev){ console.log( ev ); //eTarg.aEv.push( ev )
      }
   };
 })( document );
 fPanZ.init("[data-panzoom]");
+
 </script>
+
 <style>
   [data-panzoom] img {width: 100%}
 </style>
