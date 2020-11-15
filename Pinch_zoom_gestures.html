@@ -117,8 +117,19 @@ function remove_event(ev) {
  }
 }
 
+function init() {
+ // Install event handlers for the pointer target
+ var el=document.getElementById("target");
+ el.onpointerdown = pointerdown_handler;
+ el.onpointermove = pointermove_handler;
 
-
+ // Use same handler for pointer{up,cancel,out,leave} events since
+ // the semantics for these events - in this app - are the same.
+ el.onpointerup = pointerup_handler;
+ el.onpointercancel = pointerup_handler;
+ el.onpointerout = pointerup_handler;
+ el.onpointerleave = pointerup_handler;
+}
 </script>
 <body onload="init();" style="touch-action:none">
 <h1>Pointer Event pinch/zoom gesture</h1>
@@ -138,28 +149,20 @@ function remove_event(ev) {
     <img src="https://neodigm.github.io/brand_logo_graphic_design/fantastic/discerning/4.webp">
   </section>
  <hr>
+  <section  style="touch-action:none"
+  data-panzoom="true">
+    <img src="https://neodigm.github.io/brand_logo_graphic_design/fantastic/discerning/3.webp">
+  </section>
+<hr>
 
 <script>
-function init() {
- // Install event handlers for the pointer target
- var el=document.getElementById("target");
- el.onpointerdown = pointerdown_handler;
- el.onpointermove = pointermove_handler;
-
- // Use same handler for pointer{up,cancel,out,leave} events since
- // the semantics for these events - in this app - are the same.
- el.onpointerup = pointerup_handler;
- el.onpointercancel = pointerup_handler;
- el.onpointerout = pointerup_handler;
- el.onpointerleave = pointerup_handler;
-}
 
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
   return {
     "init": (sQuery)=>{
-      let eTarg = _d.querySelector( sQuery );
-      if( eTarg ){ // Target
+      let aTarg = _d.querySelectorAll( sQuery );
+      aTarg.forEach( ( eTarg )=>{
         let eImg = eTarg.querySelector( "img" );
         eTarg.aEv = [];
         aElem.push( eTarg );
@@ -169,12 +172,15 @@ let fPanZ = ((_d)=>{
           eTarg.onpointercancel = fPanZ.pointUp;
           eTarg.onpointerout    = fPanZ.pointUp;
           eTarg.onpointerleave  = fPanZ.pointUp;
-      }
-      return ( eTarg );
+      });
+      return ( aTarg.length !== 0 );
     },
-    "pointDown": function(ev){ console.log( ev ); eTarg.aEv.push( ev ) },
-    "pointMove": function(ev){ console.log( ev ); eTarg.aEv.push( ev ) },
-    "pointUp":   function(ev){ console.log( ev ); eTarg.aEv.push( ev ) }
+    "pointDown": function(ev){ console.log( ev ); //eTarg.aEv.push( ev )
+     },
+    "pointMove": function(ev){ console.log( this ); //eTarg.aEv.push( ev )
+     },
+    "pointUp":   function(ev){ console.log( ev ); //eTarg.aEv.push( ev )
+     }
   };
 })( document );
 fPanZ.init("[data-panzoom]");
