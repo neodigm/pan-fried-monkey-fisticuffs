@@ -9,8 +9,7 @@
 <meta name="viewport" content="width=device-width">
 <style>
   div {
-    margin: 0em;
-    padding: 2em;
+    margin: 0; padding: 0;
   }
   #target {
     background: white;
@@ -118,6 +117,29 @@ function remove_event(ev) {
  }
 }
 
+
+
+</script>
+<body onload="init();" style="touch-action:none">
+<h1>Pointer Event pinch/zoom gesture</h1>
+ <!-- Create element for pointer gestures. -->
+ <div id="target">Touch and Hold with 2 pointers, then pinch in or out.<br/>
+    The background color will change to pink if the pinch is opening (Zoom In) 
+    or changes to lightblue if the pinch is closing (Zoom out).</div>
+ <!-- UI for logging/debugging -->
+ <button id="log" onclick="enableLog(event);">Start/Stop event logging</button>
+ <button id="clearlog" onclick="clearLog(event);">Clear the log</button>
+ <p></p>
+ <output></output>
+
+ <hr>
+  <section  style="touch-action:none"
+  data-panzoom="true">
+    <img src="https://neodigm.github.io/brand_logo_graphic_design/fantastic/discerning/4.webp">
+  </section>
+ <hr>
+
+<script>
 function init() {
  // Install event handlers for the pointer target
  var el=document.getElementById("target");
@@ -132,17 +154,31 @@ function init() {
  el.onpointerleave = pointerup_handler;
 }
 
+let fPanZ = ((_d)=>{
+  let aElem = []; // Elements
+  return {
+    "init": (sQuery)=>{
+      let eTarg = _d.querySelector( sQuery );
+      if( eTarg ){ // Target
+        let eImg = eTarg.querySelector( "img" );
+        eTarg.aEv = [];
+        aElem.push( eTarg );
+        eTarg.onpointerdown = fPanZ.pointDown;
+        eTarg.onpointermove = fPanZ.pointMove;
+          eTarg.onpointerup     = fPanZ.pointUp;
+          eTarg.onpointercancel = fPanZ.pointUp;
+          eTarg.onpointerout    = fPanZ.pointUp;
+          eTarg.onpointerleave  = fPanZ.pointUp;
+      }
+      return ( eTarg );
+    },
+    "pointDown": function(ev){ console.log( ev ); eTarg.aEv.push( ev ) },
+    "pointMove": function(ev){ console.log( ev ); eTarg.aEv.push( ev ) },
+    "pointUp":   function(ev){ console.log( ev ); eTarg.aEv.push( ev ) }
+  };
+})( document );
+fPanZ.init("[data-panzoom]");
 </script>
-<body onload="init();" style="touch-action:none">
-<h1>Pointer Event pinch/zoom gesture</h1>
- <!-- Create element for pointer gestures. -->
- <div id="target">Touch and Hold with 2 pointers, then pinch in or out.<br/>
-    The background color will change to pink if the pinch is opening (Zoom In) 
-    or changes to lightblue if the pinch is closing (Zoom out).</div>
- <!-- UI for logging/debugging -->
- <button id="log" onclick="enableLog(event);">Start/Stop event logging</button>
- <button id="clearlog" onclick="clearLog(event);">Clear the log</button>
- <p></p>
- <output></output>
+
 </body>
 </html>
