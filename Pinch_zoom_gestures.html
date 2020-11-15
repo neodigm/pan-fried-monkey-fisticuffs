@@ -45,6 +45,12 @@ function clearLog(event) {
  o.innerHTML = "";
 }
 
+
+
+
+
+
+
 function pointerdown_handler(ev) {
  // The pointerdown event signals the start of a touch interaction.
  // This event is cached to support 2-finger gestures
@@ -176,8 +182,7 @@ let fPanZ = ((_d)=>{
       });
       return ( aTarg.length !== 0 );
     },
-    "pointDown": function(ev){ console.log( ev.pointerId ); //eTarg.aEv.push( ev )
-     },
+    "pointDown": function(ev){ this.aEv.push( ev )},
     "pointMove": function(ev){ console.log( this.aEv ); //eTarg.aEv.push( ev )
      },
     "pointUp":   function(ev){ console.log( ev ); //eTarg.aEv.push( ev )
