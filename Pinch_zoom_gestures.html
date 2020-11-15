@@ -131,10 +131,10 @@ function init() {
  el.onpointerleave = pointerup_handler;
 }
 </script>
-<body onload="init();" style="touch-action:none">
+<body onload="init();" >
 <h1>Pointer Event pinch/zoom gesture</h1>
  <!-- Create element for pointer gestures. -->
- <div id="target">Touch and Hold with 2 pointers, then pinch in or out.<br/>
+ <div id="target" style="touch-action:none">Touch and Hold with 2 pointers, then pinch in or out.<br/>
     The background color will change to pink if the pinch is opening (Zoom In) 
     or changes to lightblue if the pinch is closing (Zoom out).</div>
  <!-- UI for logging/debugging -->
