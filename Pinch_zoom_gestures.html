@@ -171,7 +171,7 @@ let fPanZ = ((_d)=>{
       let aTarg = _d.querySelectorAll( sQuery );
       aTarg.forEach( ( eTarg )=>{
         let eImg = eTarg.querySelector( "img" );
-        eTarg.aEv = [1,2,3];
+        eTarg.aEv = [];
         aElem.push( eTarg );
         eTarg.onpointerdown = fPanZ.pointDown;
         eTarg.onpointermove = fPanZ.pointMove;
@@ -182,10 +182,15 @@ let fPanZ = ((_d)=>{
       });
       return ( aTarg.length !== 0 );
     },
-    "pointDown": function(ev){ this.aEv.push( ev )},
+    "pointDown": function(ev){ this.aEv.push( ev );
+console.log( "--dn--: " + this.aEv.length );      
+    },
     "pointMove": function(ev){ console.log( this.aEv ); //eTarg.aEv.push( ev )
      },
     "pointUp":   function(ev){ console.log( ev ); //eTarg.aEv.push( ev )
+console.log( "--up--: " + this.aEv.length );      
+      this.aEv = this.aEv.filter(function( pev ){ return ( pev.pointerId !== ev.pointerId ); });
+console.log( "--up--: " + this.aEv.length );      
      }
   };
 })( document );
