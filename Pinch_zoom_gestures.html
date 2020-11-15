@@ -184,7 +184,25 @@ let fPanZ = ((_d)=>{
     },
     "pointDown": function(ev){ this.aEv.push( ev ); },
     "pointMove": function(ev){
-      this.aEv = this.aEv.map(function( _ev ){ if( _ev.pointerId === ev.pointerId ) _ev = ev; return true;});
+      this.aEv = this.aEv.map(function( _ev ){
+        if( _ev.pointerId === ev.pointerId ) _ev = ev; return true;
+      });
+      if (evCache.length == 2) {
+        // Calculate the distance between the two pointers
+        var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
+
+        if (nXYdiff > 0) {
+          if (nXYnew > nXYdiff) { // Zoom In
+    console.log("Pinch moving OUT -> Zoom in", ev);
+          }
+          if (nXYnew < nXYdiff) { // Zoom Out
+    console.log("Pinch moving IN -> Zoom out",ev);
+          }
+        }
+
+        // Cache the distance for the next move event 
+        nXYdiff = nXYnew;
+      }
      },
     "pointUp":   function(ev){ console.log( ev );
       this.aEv = this.aEv.filter(function( _ev ){ return ( _ev.pointerId !== ev.pointerId ); });
