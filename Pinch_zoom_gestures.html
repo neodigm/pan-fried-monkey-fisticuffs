@@ -182,15 +182,13 @@ let fPanZ = ((_d)=>{
       });
       return ( aTarg.length !== 0 );
     },
-    "pointDown": function(ev){ this.aEv.push( ev );
-console.log( "--dn--: " + this.aEv.length );      
-    },
-    "pointMove": function(ev){ console.log( this.aEv ); //eTarg.aEv.push( ev )
+    "pointDown": function(ev){ this.aEv.push( ev ); },
+    "pointMove": function(ev){
+      this.aEv = this.aEv.map(function( _ev ){ if( _ev.pointerId === ev.pointerId ) _ev = ev; return true;});
      },
-    "pointUp":   function(ev){ console.log( ev ); //eTarg.aEv.push( ev )
-console.log( "--up--: " + this.aEv.length );      
-      this.aEv = this.aEv.filter(function( pev ){ return ( pev.pointerId !== ev.pointerId ); });
-console.log( "--up--: " + this.aEv.length );      
+    "pointUp":   function(ev){ console.log( ev );
+      this.aEv = this.aEv.filter(function( _ev ){ return ( _ev.pointerId !== ev.pointerId ); });
+      if( this.aEv.length < 2 ) nXYdiff = -1; // reset
      }
   };
 })( document );
