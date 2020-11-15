@@ -184,12 +184,12 @@ let fPanZ = ((_d)=>{
     },
     "pointDown": function(ev){ this.aEv.push( ev ); },
     "pointMove": function(ev){
-      this.aEv = this.aEv.map(function( _ev ){
+      this.aEv = this.aEv.map(function( _ev ){ // Update Event
         if( _ev.pointerId === ev.pointerId ) _ev = ev; return true;
       });
 
 
-      if( evCache.length == 2) { // Distance between two pointers
+      if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
         if( nXYdiff > 0) {
           if( nXYnew > nXYdiff) { // Zoom In
@@ -204,7 +204,7 @@ let fPanZ = ((_d)=>{
         nXYdiff = nXYnew;
       }
      },
-    "pointUp":   function(ev){ console.log( ev );
+    "pointUp":   function(ev){
       this.aEv = this.aEv.filter(function( _ev ){ return ( _ev.pointerId !== ev.pointerId ); });
       if( this.aEv.length < 2 ) nXYdiff = -1; // reset
      },
