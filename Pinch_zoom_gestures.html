@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=en>
 <head>
-  <title>Neodigm | Pointer Events pinch/zoom pattern</title>
+  <title>Neodigm | Pointer Events Pinch/Zoom pattern</title>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
 </head>
@@ -18,8 +18,23 @@
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
   </section>
 <hr>
+<output>log</output>
 
 <script>
+var eLog = document.querySelector("output");
+
+function doLog(a){
+  var sLg = "";
+console.log(   a );
+  a.forEach( ai =>{
+console.log( "------ | " + ai );
+console.log(   ai );
+console.log( "------ | " + ai );
+    sLg += ai.pointerId + " | " + ai.clientX + "\n";
+  });
+  return sLg
+}
+
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
   let nXYdiff = -1;
@@ -39,22 +54,19 @@ let fPanZ = ((_d)=>{
       });
       return ( aTarg.length !== 0 );
     },
-    "pointDown": function(ev){ this.aEv.push( ev ); },
+    "pointDown": function(ev){ this.aEv.push( ev );    console.log( "this.aEv" ); console.log( this.aEv ); },
     "pointMove": function(ev){
-console.log("ducks | " + this.aEv.length);
       this.aEv = this.aEv.map(function( _ev ){ // Update Event
-        if( _ev.pointerId === ev.pointerId ) _ev = ev; return true;
+        return ( _ev.pointerId === ev.pointerId ) ? ev : _ev;
       });
 
       if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
         if( nXYdiff > 0) {
           if( nXYnew > nXYdiff) { // Zoom In
-    console.log("Pinch moving OUT -> Zoom in", ev);
             fPanZ.doZoomIn();
           }
           if( nXYnew < nXYdiff) { // Zoom Out
-    console.log("Pinch moving IN -> Zoom out",ev);
             fPanZ.doZoomOut();
           }
         }
@@ -62,7 +74,9 @@ console.log("ducks | " + this.aEv.length);
       }
      },
     "pointUp":   function(ev){
-      this.aEv = this.aEv.filter(function( _ev ){ return ( _ev.pointerId !== ev.pointerId ); });
+eLog.innerHTML = doLog(this.aEv );
+      this.aEv = this.aEv.filter(function( _ev ){
+        return ( _ev.pointerId !== ev.pointerId ); });
       if( this.aEv.length < 2 ) nXYdiff = -1; // reset
      },
      "doZoomIn": function(){
@@ -79,7 +93,7 @@ fPanZ.init("[data-panzoom]");
 </script>
 
 <style>
-  [data-panzoom] {width: 44%;margin: 8px auto;}
+  [data-panzoom] {width: 44%;margin: 8px auto; border: solid 1px #444;}
   [data-panzoom] img {width: 100%}
 </style>
 </body>
