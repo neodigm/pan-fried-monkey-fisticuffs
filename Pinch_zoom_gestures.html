@@ -23,17 +23,20 @@
 <script>
 var eLog = document.querySelector("output");
 
-function doLog(a){
-  var sLg = "";
-console.log(   a );
-  a.forEach( ai =>{
-console.log( "------ | " + ai );
-console.log(   ai );
-console.log( "------ | " + ai );
-    sLg += ai.pointerId + " | " + ai.clientX + "\n";
-  });
-  return sLg
-}
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
 
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
@@ -82,16 +85,15 @@ let fPanZ = ((_d)=>{
       if( this.aEv.length < 2 ) nXYdiff = -1; // reset
      },
      "doZoomIn": function(){
-        if( fZi ) fZi();
+        if( fZi ) debounce(function() { fZi(); }, 100);
      },
      "doZoomOut": function(){
-        if( fZo ) fZo();
+        if( fZo ) debounce(function() { fZo(); }, 100);
      }
   };
 })( document );
 
-
-fPanZ.init("[data-panzoom]", ()=>{ eLog.innerHTML = "in"; }, ()=>{ eLog.innerHTML = "out"; });
+fPanZ.init("[data-panzoom]", ()=>{ eLog.innerHTML += eLog.innerHTML + " in\n"; }, ()=>{ eLog.innerHTML += eLog.innerHTML + " out\n"; });
 
 </script>
 
