@@ -18,10 +18,10 @@
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
   </section>
 <hr>
-<output>log</output>
+<pre>log</pre>
 
 <script>
-var eLog = document.querySelector("output");
+var eLog = document.querySelector("pre");
 
 function debounce(func, wait, immediate) {
 	var timeout;
@@ -60,7 +60,7 @@ let fPanZ = ((_d)=>{
       });
       return ( aTarg.length !== 0 );
     },
-    "pointDown": function(ev){ this.aEv.push( ev );    console.log( "this.aEv" ); console.log( this.aEv ); },
+    "pointDown": function(ev){ this.aEv.push( ev ); },
     "pointMove": function(ev){
       this.aEv = this.aEv.map(function( _ev ){ // Update Event
         return ( _ev.pointerId === ev.pointerId ) ? ev : _ev;
@@ -69,12 +69,8 @@ let fPanZ = ((_d)=>{
       if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
         if( nXYdiff > 0) {
-          if( nXYnew > nXYdiff) { // Zoom In
-            fPanZ.doZoomIn();
-          }
-          if( nXYnew < nXYdiff) { // Zoom Out
-            fPanZ.doZoomOut();
-          }
+          if( nXYnew > nXYdiff) { debounce(function() { fPanZ.doZoomIn(); }, 100); }
+          if( nXYnew < nXYdiff) { debounce(function() { fPanZ.doZoomOut(); }, 100); }
         }
         nXYdiff = nXYnew;
       }
@@ -85,15 +81,18 @@ let fPanZ = ((_d)=>{
       if( this.aEv.length < 2 ) nXYdiff = -1; // reset
      },
      "doZoomIn": function(){
+console.log("in");
+//eLog.innerHTML = eLog.innerHTML + " in\n"; 
         if( fZi ) debounce(function() { fZi(); }, 100);
      },
      "doZoomOut": function(){
+console.log("out");       
         if( fZo ) debounce(function() { fZo(); }, 100);
      }
   };
 })( document );
 
-fPanZ.init("[data-panzoom]", ()=>{ eLog.innerHTML += eLog.innerHTML + " in\n"; }, ()=>{ eLog.innerHTML += eLog.innerHTML + " out\n"; });
+fPanZ.init("[data-panzoom]", ()=>{ eLog.innerHTML = eLog.innerHTML + " in\n"; }, ()=>{ eLog.innerHTML = eLog.innerHTML + " out\n"; });
 
 </script>
 
