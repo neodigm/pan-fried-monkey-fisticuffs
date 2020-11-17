@@ -38,9 +38,12 @@ console.log( "------ | " + ai );
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
   let nXYdiff = -1;
+  let fZi, fZo;
   return {
-    "init": (sQuery)=>{
+    "init": (sQuery, _fZi, _fZo)=>{ // DOM Query, Zoom In, Zoom Out call backs
       let aTarg = _d.querySelectorAll( sQuery );
+      if( _fZi ) fZi = _fZi;
+      if( _fZo ) fZo = _fZo;
       aTarg.forEach( ( eTarg )=>{
         let eImg = eTarg.querySelector( "img" );
         eTarg.aEv = [];
@@ -80,16 +83,16 @@ eLog.innerHTML = doLog(this.aEv );
       if( this.aEv.length < 2 ) nXYdiff = -1; // reset
      },
      "doZoomIn": function(){
-       alert("In");
+        if( fZi ) fZi();
      },
      "doZoomOut": function(){
-       alert("Out");
+        if( fZo ) fZo();
      }
   };
 })( document );
 
 
-fPanZ.init("[data-panzoom]");
+fPanZ.init("[data-panzoom]", ()=>{alert("in");}, ()=>{alert("out");});
 
 </script>
 
