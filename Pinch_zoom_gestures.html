@@ -77,7 +77,6 @@ let fPanZ = ((_d)=>{
       }
      },
     "pointUp":   function(ev){
-eLog.innerHTML = doLog(this.aEv );
       this.aEv = this.aEv.filter(function( _ev ){
         return ( _ev.pointerId !== ev.pointerId ); });
       if( this.aEv.length < 2 ) nXYdiff = -1; // reset
@@ -92,7 +91,7 @@ eLog.innerHTML = doLog(this.aEv );
 })( document );
 
 
-fPanZ.init("[data-panzoom]", ()=>{alert("in");}, ()=>{alert("out");});
+fPanZ.init("[data-panzoom]", ()=>{ eLog.innerHTML = "in"; }, ()=>{ eLog.innerHTML = "out"; });
 
 </script>
 
