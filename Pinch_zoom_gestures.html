@@ -18,7 +18,7 @@
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
   </section>
 <hr>
-<pre>ant</pre>
+<pre>elk</pre>
 
 <script>
 var eLog = document.querySelector("pre");
@@ -69,8 +69,8 @@ let fPanZ = ((_d)=>{
       if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
         if( nXYdiff > 0) {
-          if( nXYnew > nXYdiff) { debounce(function() { fPanZ.doZoomIn(); }, 100, true); }
-          if( nXYnew < nXYdiff) { debounce(function() { fPanZ.doZoomOut(); }, 100, true); }
+          if( nXYnew > nXYdiff) { debounce(fPanZ.doZoomIn, 100, true); }
+          if( nXYnew < nXYdiff) { debounce(fPanZ.doZoomOut, 100, true); }
         }
         nXYdiff = nXYnew;
       }
