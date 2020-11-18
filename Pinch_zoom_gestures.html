@@ -77,15 +77,8 @@ let fPanZ = ((_d)=>{
         return ( _ev.pointerId !== ev.pointerId ); });
       if( this.aEv.length < 2 ) nXYdiff = -1; // reset
      },
-     "doZoomIn": function(){
-console.log("in");
-//eLog.innerHTML = eLog.innerHTML + " in\n"; 
-        if( fZi ) debounce(function() { fZi(); }, 100);
-     },
-     "doZoomOut": function(){
-console.log("out");       
-        if( fZo ) debounce(function() { fZo(); }, 100);
-     }
+     "doZoomIn": function(){ if( fZi ) fZi(); },
+     "doZoomOut": function(){ if( fZo ) fZo(); }
   };
 })( document );
 
