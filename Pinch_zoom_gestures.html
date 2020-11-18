@@ -18,12 +18,14 @@
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
   </section>
 <hr>
-<pre>dog</pre> 
+<pre>cat</pre> 
 
 <script>
 var eLog = document.querySelector("pre");
 
 const debounce = (func, delay) => { 
+  func();
+  return;
       let debounceTimer 
       return function() { 
         const context = this
