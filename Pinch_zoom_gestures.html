@@ -29,13 +29,13 @@ var fThrottle = ( function( _t ){
     "doF": function( fnc ){
       if( bOk ){
         bOk = false;
-        setTimeout( fThrottle.doDelay(), _t );
+        setTimeout( fThrottle.doDelay, _t );
         fnc();
       }
     },
     "doDelay": function(){ bOk = true; }
-  }
-})( 176 );
+  };
+})( 1076 );
 
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
