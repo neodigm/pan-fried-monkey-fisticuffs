@@ -8,13 +8,13 @@
 
 <body>
 
-  <section style="touch-action:none"
+  <section
   data-panzoom="true">
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm1.jpg">
   </section>
 
 <hr>
-<pre>cow</pre> 
+<pre>ant</pre> 
 
 <script>
 var eLog = document.querySelector("pre");
@@ -62,7 +62,7 @@ var fPinch = ((_d)=>{
 
       if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
-        if( nXYdiff > 80) {
+        if( nXYdiff > 100) {
           if( nXYnew > nXYdiff) { fThrottle.doFnc( fPinch.doZoomIn ); }
           if( nXYnew < nXYdiff) { fThrottle.doFnc( fPinch.doZoomOut ); }
         }
@@ -111,8 +111,13 @@ fPinch.init("[data-panzoom]",
 </script>
 
 <style>
-  [data-panzoom] {width: 100%;margin: 8px auto; border: solid 1px #444;
-  overflow: hidden;}
+[data-panzoom] {
+width: 100%; height: calc(100vw - 88px);
+margin: 8px auto;
+border: solid 1px #444;
+touch-action:none;
+overflow: hidden;
+}
   [data-panzoom] img {width: 100%;
   transition: width .6s;}
 </style>
