@@ -18,7 +18,7 @@
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
   </section>
 <hr>
-<pre>ant</pre> 
+<pre>cat</pre> 
 
 <script>
 var eLog = document.querySelector("pre");
@@ -35,7 +35,7 @@ var fThrottle = ( function( _t ){
     },
     "doDelay": function(){ bOk = true; }
   };
-})( 1076 );
+})( 256 );
 
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
@@ -84,7 +84,13 @@ let fPanZ = ((_d)=>{
   };
 })( document );
 
-fPanZ.init("[data-panzoom]", ()=>{ eLog.innerHTML = " in\n" + eLog.innerHTML; }, ()=>{ eLog.innerHTML = " out\n" + eLog.innerHTML; });
+fPanZ.init("[data-panzoom]",
+()=>{
+  eLog.innerHTML = " in\n" + eLog.innerHTML;
+},
+()=>{
+  eLog.innerHTML = " out\n" + eLog.innerHTML;
+});
 
 </script>
 
