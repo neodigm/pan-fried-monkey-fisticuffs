@@ -26,7 +26,7 @@ var eLog = document.querySelector("pre");
 var fThrottle = ( function( _t ){
   var bOk = true;
   return {
-    "doF": function( fnc ){
+    "doFnc": function( fnc ){
       if( bOk ){
         bOk = false;
         setTimeout( fThrottle.doDelay, _t );
@@ -37,25 +37,24 @@ var fThrottle = ( function( _t ){
   };
 })( 256 );
 
-let fPanZ = ((_d)=>{
-  let aElem = []; // Elements
-  let nXYdiff = -1;
-  let fZi, fZo;
+var fPinch = ((_d)=>{
+  var aElem = []; // Elements
+  var nXYdiff = -1, fZi, fZo;
   return {
     "init": (sQuery, _fZi, _fZo)=>{ // DOM Query, Zoom In, Zoom Out call backs
-      let aTarg = _d.querySelectorAll( sQuery );
+      var aTarg = _d.querySelectorAll( sQuery );
       if( _fZi ) fZi = _fZi;
       if( _fZo ) fZo = _fZo;
       aTarg.forEach( ( eTarg )=>{
-        let eImg = eTarg.querySelector( "img" );
+        var eImg = eTarg.querySelector( "img" );
         eTarg.aEv = [];
         aElem.push( eTarg );
-        eTarg.onpointerdown = fPanZ.pointDown;
-        eTarg.onpointermove = fPanZ.pointMove;
-          eTarg.onpointerup     = fPanZ.pointUp;
-          eTarg.onpointercancel = fPanZ.pointUp;
-          eTarg.onpointerout    = fPanZ.pointUp;
-          eTarg.onpointerleave  = fPanZ.pointUp;
+        eTarg.onpointerdown = fPinch.pointDown;
+        eTarg.onpointermove = fPinch.pointMove;
+          eTarg.onpointerup     = fPinch.pointUp;
+          eTarg.onpointercancel = fPinch.pointUp;
+          eTarg.onpointerout    = fPinch.pointUp;
+          eTarg.onpointerleave  = fPinch.pointUp;
       });
       return ( aTarg.length !== 0 );
     },
@@ -68,8 +67,8 @@ let fPanZ = ((_d)=>{
       if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
         if( nXYdiff > 0) {
-          if( nXYnew > nXYdiff) { fThrottle.doF( fPanZ.doZoomIn ); }
-          if( nXYnew < nXYdiff) { fThrottle.doF( fPanZ.doZoomOut ); }
+          if( nXYnew > nXYdiff) { fThrottle.doFnc( fPinch.doZoomIn ); }
+          if( nXYnew < nXYdiff) { fThrottle.doFnc( fPinch.doZoomOut ); }
         }
         nXYdiff = nXYnew;
       }
@@ -84,18 +83,40 @@ let fPanZ = ((_d)=>{
   };
 })( document );
 
-fPanZ.init("[data-panzoom]",
+var fZoom = (function( _d, _q ){
+  var eZImg, nPerCent = 100;
+  eZimg = _d.querySelector( _q );
+  return {
+    "doIn": function(){
+      if( eZimg ){
+        nPerCent = nPerCent + ( (nPerCent < 320) ? 20 : 0 );
+        eZimg.style.width = nPerCent + "%";
+      }
+    },
+    "doOut": function(){
+      if( eZimg ){
+        nPerCent = nPerCent - ( (nPerCent > 0 ) ? 20 : 0 );
+        eZimg.style.width = nPerCent + "%";
+      }
+    }
+  };
+})( document, "[data-panzoom] img" );
+
+fPinch.init("[data-panzoom]",
 ()=>{
   eLog.innerHTML = " in\n" + eLog.innerHTML;
+  fZoom.doIn();
 },
 ()=>{
   eLog.innerHTML = " out\n" + eLog.innerHTML;
+  fZoom.doOut();
 });
 
 </script>
 
 <style>
-  [data-panzoom] {width: 44%;margin: 8px auto; border: solid 1px #444;}
+  [data-panzoom] {width: 66%;margin: 8px auto; border: solid 1px #444;
+  overflow: hidden;}
   [data-panzoom] img {width: 100%}
 </style>
 </body>
