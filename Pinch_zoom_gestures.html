@@ -18,22 +18,24 @@
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
   </section>
 <hr>
-<pre>elk</pre> 
+<pre>ant</pre> 
 
 <script>
 var eLog = document.querySelector("pre");
 
-var debounce = (func, delay) => { 
-  //func();
-  //return;
-      var debounceTimer 
-      return function() { 
-        const context = this
-        const args = arguments 
-        clearTimeout(debounceTimer) 
-        debounceTimer = setTimeout(() => func.apply(context, args), delay) 
-      } 
-    }
+var fThrottle = ( function( _t ){
+  var bOk = true;
+  return {
+    "doF": function( fnc ){
+      if( bOk ){
+        bOk = false;
+        setTimeout( fThrottle.doDelay(), _t );
+        fnc();
+      }
+    },
+    "doDelay": function(){ bOk = true; }
+  }
+})( 176 );
 
 let fPanZ = ((_d)=>{
   let aElem = []; // Elements
@@ -66,8 +68,8 @@ let fPanZ = ((_d)=>{
       if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
         if( nXYdiff > 0) {
-          if( nXYnew > nXYdiff) { debounce(fPanZ.doZoomIn, 100, true); }
-          if( nXYnew < nXYdiff) { debounce(fPanZ.doZoomOut, 100, true); }
+          if( nXYnew > nXYdiff) { fThrottle.doF( fPanZ.doZoomIn ); }
+          if( nXYnew < nXYdiff) { fThrottle.doF( fPanZ.doZoomOut ); }
         }
         nXYdiff = nXYnew;
       }
