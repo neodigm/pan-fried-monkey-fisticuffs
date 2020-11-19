@@ -62,7 +62,7 @@ var fPinch = ((_d)=>{
 
       if( this.aEv.length == 2) { // Distance between two pointers
         var nXYnew = Math.abs(this.aEv[0].clientX - this.aEv[1].clientX);
-        if( nXYdiff > 0) {
+        if( nXYdiff > 80) {
           if( nXYnew > nXYdiff) { fThrottle.doFnc( fPinch.doZoomIn ); }
           if( nXYnew < nXYdiff) { fThrottle.doFnc( fPinch.doZoomOut ); }
         }
