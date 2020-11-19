@@ -12,11 +12,7 @@
   data-panzoom="true">
     <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm1.jpg">
   </section>
- <hr>
-  <section style="touch-action:none"
-  data-panzoom="true">
-    <img src="https://www.ltdcommodities.com/images/product/90323_1324569_WOY_zm.jpg">
-  </section>
+
 <hr>
 <pre>dog</pre> 
 
@@ -95,7 +91,7 @@ var fZoom = (function( _d, _q ){
     },
     "doOut": function(){
       if( eZimg ){
-        nPerCent = nPerCent - ( (nPerCent > 0 ) ? 20 : 0 );
+        nPerCent = nPerCent - ( (nPerCent > 80 ) ? 20 : 0 );
         eZimg.style.width = nPerCent + "%";
       }
     }
@@ -115,7 +111,7 @@ fPinch.init("[data-panzoom]",
 </script>
 
 <style>
-  [data-panzoom] {width: 66%;margin: 8px auto; border: solid 1px #444;
+  [data-panzoom] {width: 100%;margin: 8px auto; border: solid 1px #444;
   overflow: hidden;}
   [data-panzoom] img {width: 100%;
   transition: width .8s;}
