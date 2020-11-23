@@ -99,15 +99,14 @@ var fZoom = (function( _d, _q ){
 })( document, "[data-panzoom] img" );
 
 fPinch.init("[data-panzoom]",
-()=>{
+()=>{ // Zoom In
   eLog.innerHTML = " in\n" + eLog.innerHTML;
   fZoom.doIn();
 },
-()=>{
+()=>{ // Zoom Out
   eLog.innerHTML = " out\n" + eLog.innerHTML;
   fZoom.doOut();
 });
-
 </script>
 
 <style>
