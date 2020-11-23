@@ -99,7 +99,7 @@ var fZoom = (function( _d, _q ){
 })( document, "[data-panzoom] img" );
 
 fPinch.init("[data-panzoom]",
-()=>{ // Zoom In
+()=>{ // Zoom In callback
   eLog.innerHTML = " in\n" + eLog.innerHTML;
   fZoom.doIn();
 },
