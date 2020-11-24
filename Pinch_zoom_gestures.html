@@ -99,11 +99,11 @@ var fZoom = (function( _d, _q ){
 })( document, "[data-panzoom] img" );
 
 fPinch.init("[data-panzoom]",
-()=>{ // Zoom In callback
+()=>{ // Zoom In callback function
   eLog.innerHTML = " in\n" + eLog.innerHTML;
   fZoom.doIn();
 },
-()=>{ // Zoom Out callback
+()=>{ // Zoom Out callback function
   eLog.innerHTML = " out\n" + eLog.innerHTML;
   fZoom.doOut();
 });
