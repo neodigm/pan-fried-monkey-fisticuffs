@@ -1,5 +1,5 @@
 [![License: BSD](https://badgen.net/badge/license/BSD/orange)](https://opensource.org/licenses/BSD-3-Clause)
-# Pan Fried Monkey Fisticuffs
+# Pan Fried Monkey Fisticuffs (aka Neodigm 55)
 A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves! 🐒
 
 <p align="center">
