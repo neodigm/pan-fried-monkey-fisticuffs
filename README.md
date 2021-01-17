@@ -32,6 +32,7 @@ A gamified vanilla JavaScript micro-interaction library for those who defiantly 
 </p>
 
 ```javascript
+// Popup Modal Dialog Component | Reveal
 var _aRevAct=0, _aRevX=0, _sRevId="", _bIsOpen = false, _fOnClose=null, _d=document;
 var pfmfModal = {
   eRev: 0, eRevScrim: 0,
