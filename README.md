@@ -20,7 +20,6 @@ Note: This framework is being rewritten in TypeScript and renamed Neodigm55.js.
 [Code Pen](https://codepen.io/neodigm24) |
 [Machvive](https://machvive.com/) |
 [Arcanus 55](https://www.arcanus55.com/) |
-[Repl](https://repl.it/@neodigm) |
 [Twitter](https://twitter.com/neodigm24) |
 [Keybase](https://keybase.io/neodigm) |
 [W3C](https://www.w3.org/users/123844) |
