@@ -1,7 +1,7 @@
 # Pan Fried Monkey Fisticuffs | Neodigm 55
 A gamified vanilla JavaScript micro-interaction library for those who defiantly think for themselves! 🐒
 
-Note: This framework is being rewritten in TypeScript and renamed Neodigm55.js.
+Note: This framework is being rewritten in TypeScript and renamed Neodigm55.js. Contributions welcome.
 
 <p align="center">
   <a target="_blank" href="https://thescottkrause.com/tags/javascript/">
