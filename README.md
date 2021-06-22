@@ -9,6 +9,12 @@ Note: This framework is being rewritten in TypeScript and renamed Neodigm55.js. 
   </a>
 </p>
 
+<p align="center">
+  <a target="_blank" href="https://neodigm.github.io/pan-fried-monkey-fisticuffs/viz_components/vizLinearPercent.html">
+Viz Linear Percent Component
+  </a>
+</p>
+
 #
 [Portfolio Blog](https://www.theScottKrause.com) |
 [🚀 Résumé](https://www.thescottkrause.com/Arcanus_Scott_C_Krause_2021.pdf) |
