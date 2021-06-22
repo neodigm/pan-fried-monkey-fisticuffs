@@ -1,0 +1,151 @@
+<!DOCTYPE=HTML>
+<html>
+  <head>
+    <title>Viz Linear Percent Component</title>
+    <meta name="generator" content="neodigm 55">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400|Roboto+Slab:300,400" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <section role="main">
+        <section class="l-banner"><h2>Viz Linear Percent Component</h2></section>
+        <textarea id="js-config" class="dmo-textbox">{"pointerVal": 22, "pointerColor": "green", "limitGreen": 18, "limitYellow": 44, "limitRed": 77}</textarea>
+        <button class="btn-update">Update Component Config</button>
+
+        <section class="l-demo-cont">
+
+            <article class="l-vizLinear" data-color="green">
+                <div class="grid-tp">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="-2 -6 28 28" height="38" width="38">
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                        <path class="grd__vect" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"/>
+                    </svg>
+                </div>
+                <div class="grid-bt">
+                    <section class="line--gray">
+                        <div class="line--green"></div>
+                        <div class="line--yellow"></div>
+                        <div class="line--red"></div>
+                    </section>
+                </div>
+            </article>
+
+        </section>
+    </section>
+<script>
+let vizLinear = (( _d, _q)=>{
+    let vizLinear = _d.querySelector( _q[0] )
+    let imgSVG = _d.querySelector( _q[1] )
+    let arColors = _d.querySelectorAll( _q[2] )
+    let svgColorVal = 0
+    const SVG_WIDTH = 38;
+    return {
+        "config": (jConfig)=>{  //  Position Elements
+            if( jConfig.pointerVal >= 4 ){
+                imgSVG.style.setProperty('margin-left', 'calc(' + jConfig.pointerVal + '% - ' + SVG_WIDTH + 'px)');
+            }else{
+                imgSVG.style.setProperty('margin-left', 'calc(' + jConfig.pointerVal + '% + ' + 1 + 'px)');
+            }
+            arColors[0].style.width = jConfig.limitGreen + "%";
+            arColors[1].style.width = jConfig.limitYellow + "%";
+            arColors[2].style.width = jConfig.limitRed + "%";
+            vizLinear.dataset.color = jConfig.pointerColor;
+        }
+    }
+})(document, [".l-vizLinear",".l-vizLinear svg",".l-vizLinear .grid-bt div"])
+
+//  Wire Demo event
+document.querySelector(".btn-update").addEventListener("click", (ev=>{
+    if( vizLinear ) vizLinear.config( JSON.parse( document.querySelector("#js-config").value ) )
+}))
+if( vizLinear ) vizLinear.config( JSON.parse( document.querySelector("#js-config").value ) )
+</script>
+<style>
+/* Viz Linear Percent Begin */
+.l-vizLinear {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+.l-vizLinear .grid-tp {
+    height: 56px;
+}
+.l-vizLinear .grid-tp svg {
+    margin-top: 8px;
+}
+[data-color='green'].l-vizLinear .grid-tp svg path.grd__vect {
+    fill: #88B04B;
+}
+[data-color='yellow'].l-vizLinear .grid-tp svg path.grd__vect {
+    fill: #F5DF4D;
+}
+[data-color='red'].l-vizLinear .grid-tp svg path.grd__vect {
+    fill: #BF1932;
+}
+.l-vizLinear .grid-bt {
+    height: 44px;
+}
+
+.l-vizLinear .line--gray{
+    position: relative;
+    margin: 0 auto;
+    background-color: #e4e4e4;
+    height: 10px;
+    width: calc(100% - 38px);
+}
+.l-vizLinear .line--gray div {
+    position: absolute; top: 1px;
+    height: 10px;
+}
+.l-vizLinear .line--green{
+    background: linear-gradient(to bottom, #88B04B 1%,#c4daa5 100%);
+    width: 10%;
+    z-index: 64;
+}
+.l-vizLinear .line--yellow{
+    background: linear-gradient(to bottom, #f5DF4D 1%,#f9eda0 100%);
+    width: 20%;
+    z-index: 32;
+}
+.l-vizLinear .line--red{
+    background: linear-gradient(to bottom, #bf1932 1%,#b87983 100%);
+    width: 30%;
+    z-index: 16;
+}
+/* Viz Linear Percent End */
+
+/* Demo Page Layout Begin */
+body {
+    font-family: 'Roboto Condensed',sans-serif;
+}
+.l-banner {
+    text-align: center;
+    margin: 18px;
+}
+.btn-update {
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    background-color: #4444aa;
+    border: solid 1px #4444aa;
+    border-radius: 10px;
+    max-width: 32%; min-width: 22%;
+    margin: 8px auto; padding: 10px;
+}
+.dmo-textbox {
+    display: block;
+    max-width: 32%; min-width: 22%;
+    height: 96px;
+    margin: 44px auto;
+}
+.l-demo-cont{
+    width: 22%;
+    margin: 44px auto;
+}
+/* Demo Page Layout End */
+</style>
+  </body>
+</html>
