@@ -10,7 +10,7 @@ Note: This framework is being rewritten in TypeScript and renamed Neodigm55.js. 
 </p>
 
 <p align="center">
-  <a target="_blank" href="https://neodigm.github.io/pan-fried-monkey-fisticuffs/viz_components/vizLinearPercent.html">
+  <a target="_blank" href="https://neodigm.github.io/pan-fried-monkey-fisticuffs/viz_components/viz_linear_percent_v2.html">
 Viz Linear Percent Component
   </a>
 </p>
