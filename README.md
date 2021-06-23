@@ -100,4 +100,13 @@ var pfmfModal = {
   }
 }; pfmfModal.init();
 ```
-🏖️ Inspired Problem Solver 🚀 Visual Storyteller
+
+
+
+<p align="center">
+  <a target="_blank" href="https://www.thescottkrause.com">
+  <img src="https://neodigm.github.io/pan-fried-monkey-fisticuffs/thescottkrause_contact_card.png" title="D3js Skills with Audio ✨ JavaScript && TypeScript && Go 🪐 Vue.js && TypeScript && Go  🍰">
+  </a>
+</p>
+
+
