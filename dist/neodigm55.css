@@ -1,0 +1,73 @@
+/* neodigm 55 JS v1.0.2 | Scott C. Krause | neodigm | Gamefried JavaScript Framework */
+
+.l-reveal .reveal__box {
+    display: block !important;
+    position: absolute;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1005;
+    left: 0;
+    margin: 0 auto;
+    right: 0;
+    background-color: #fff;
+    padding: 8px;
+    border: solid 1px #666;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .l-reveal .reveal__scrim {
+        background: linear-gradient(rgba(228,198,126,.32),rgba(188,130,19,.68));
+        background-position: 50% 0;
+        background-size: cover;
+    cursor: pointer;
+    display: block!important;
+    opacity: .4;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 8;
+    }
+    .l-reveal .reveal-modal,
+    .reveal__init {
+    display: none;
+    }
+    .l-reveal .small {
+    width: 78%;
+    }
+    /* Pan Fried Monkey Fisticuffs v0.4 */
+    .l-reveal .medium {
+    width: 60%;
+    }
+    .l-reveal .large {
+    width: 76%;
+    }
+    .l-reveal .resp_x, .resp_x:hover {
+    position: absolute;
+    right: 10px;
+    font-family: monospace;
+    font-size: 28px;
+    font-weight: 800;
+    color: #444!important;
+    top: 2px;
+    cursor: pointer;
+    }
+    .l-reveal  .resp_x:hover {
+    color: #444!important;
+    }
+    .l-reveal .eml-msg__x{
+        position: absolute;
+        top: -24px;
+        right: -38px;
+    }
+    
+    @media only screen and (min-width:48.1em) and (max-width:62em){/* med */
+        .l-reveal .small {
+            width: 40%;
+        }
+    }
+    @media only screen and (min-width:62.1em){/* lg */
+        .l-reveal .small {
+            width: 40%;
+        }
+    }
+    
