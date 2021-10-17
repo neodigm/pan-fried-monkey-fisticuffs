@@ -59,6 +59,12 @@
         top: -24px;
         right: -38px;
     }
+    .l-reveal.reveal-cta {
+        position: fixed;
+        width: 100%;
+        z-index: 364;
+        top: 38px;
+    }
     
     @media only screen and (min-width:48.1em) and (max-width:62em){/* med */
         .l-reveal .small {
