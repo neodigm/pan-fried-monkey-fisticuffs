@@ -4,40 +4,40 @@ var neodigm = {};
 
 // neodigm Modal Begin //
 var _aRevAct=0, _aRevX=0, _sRevId="", _bIsOpen = false, _fOnClose=null, _d=document;
-var neodigmModal = {
+var neodigmPop = {
   eRev: 0, eRevScrim: 0,
   "init" : function() {
     _aRevX = _d.getElementsByClassName("close-reveal-modal");
     for (var i = 0, ln = _aRevX.length; i < ln; i++) {
-        _aRevX[i].addEventListener("click", neodigmModal.close, false);
+        _aRevX[i].addEventListener("click", neodigmPop.close, false);
     }
     _aRevAct = _d.querySelectorAll("[data-rev-id]");
     for (var i = 0, ln = _aRevAct.length; i < ln; i++) {
-        _aRevAct[i].addEventListener("click", neodigmModal.open, false);
+        _aRevAct[i].addEventListener("click", neodigmPop.open, false);
     }
-    neodigmModal.eRevScrim = _d.getElementById("id-reveal__scrim");
+    neodigmPop.eRevScrim = _d.getElementById("id-reveal__scrim");
   },
   "open" : function(e){
     _bIsOpen = true;
     _sRevId = this.getAttribute("data-rev-id");
     if(_sRevId){
-      neodigmModal.eRevScrim.classList.add("reveal__scrim");
-      neodigmModal.eRev = _d.getElementById(_sRevId);
-      neodigmModal.eRev.classList.add("reveal__box");
-      neodigmModal.eRev.parentElement.classList.remove("reveal__init");
-        neodigmModal.eRev.style.top = String(window.pageYOffset + 84) + "px";
-        neodigmModal.eRev.style.visibility = "visible";
-      neodigmModal.eRev.setAttribute("aria-hidden", "false");
+      neodigmPop.eRevScrim.classList.add("reveal__scrim");
+      neodigmPop.eRev = _d.getElementById(_sRevId);
+      neodigmPop.eRev.classList.add("reveal__box");
+      neodigmPop.eRev.parentElement.classList.remove("reveal__init");
+        neodigmPop.eRev.style.top = String(window.pageYOffset + 84) + "px";
+        neodigmPop.eRev.style.visibility = "visible";
+      neodigmPop.eRev.setAttribute("aria-hidden", "false");
       e.preventDefault();
     }
     return false;
   },
   "close" : function(e){
     _bIsOpen = false;
-    neodigmModal.eRevScrim.classList.remove("reveal__scrim");
-    neodigmModal.eRev.classList.remove("reveal__box");
-    neodigmModal.eRev.parentElement.classList.add("reveal__init");
-    neodigmModal.eRev.setAttribute("aria-hidden", "true");
+    neodigmPop.eRevScrim.classList.remove("reveal__scrim");
+    neodigmPop.eRev.classList.remove("reveal__box");
+    neodigmPop.eRev.parentElement.classList.add("reveal__init");
+    neodigmPop.eRev.setAttribute("aria-hidden", "true");
     if(e){ e.preventDefault(); }
     if( _fOnClose ) _fOnClose();
   },
@@ -45,13 +45,13 @@ var neodigmModal = {
     _bIsOpen = true;
     _sRevId = _sId;
     if(_sRevId){
-      neodigmModal.eRevScrim.classList.add("reveal__scrim");
-      neodigmModal.eRev = _d.getElementById(_sRevId);
-      neodigmModal.eRev.classList.add("reveal__box");
-      neodigmModal.eRev.parentElement.classList.remove("reveal__init");
-        neodigmModal.eRev.style.top = String(window.pageYOffset + 84) + "px";
-        neodigmModal.eRev.style.visibility = "visible";
-      neodigmModal.eRev.setAttribute("aria-hidden", "false");
+      neodigmPop.eRevScrim.classList.add("reveal__scrim");
+      neodigmPop.eRev = _d.getElementById(_sRevId);
+      neodigmPop.eRev.classList.add("reveal__box");
+      neodigmPop.eRev.parentElement.classList.remove("reveal__init");
+        neodigmPop.eRev.style.top = String(window.pageYOffset + 84) + "px";
+        neodigmPop.eRev.style.visibility = "visible";
+      neodigmPop.eRev.setAttribute("aria-hidden", "false");
     }
     return false;
   },
@@ -61,7 +61,7 @@ var neodigmModal = {
   "setOnClose" : function( _f ){
     if( _f ) _fOnClose = _f;
   }
-}; neodigmModal.init();
+}; neodigmPop.init();
 // neodigm Modal End //
 // neodigm Toast Begin //
 // neodigm Vivid Begin //
