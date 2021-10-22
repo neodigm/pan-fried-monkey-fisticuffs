@@ -5,7 +5,7 @@
   </section>
 </ltdc-snackbar><!--  Component End  -->
 
-var snck = (function(_d, eID) {
+var neodigmSnack = (function(_d, eID) {
     var _nTimeout = 5400, _aQ = [];
     var _eSb = _d.getElementById(eID),
         _eSbText = _eSb.querySelectorAll("P")[0];
@@ -27,7 +27,7 @@ var snck = (function(_d, eID) {
     };
     return {
         q: function(sMsg) {
-            if (sMsg != _aQ[0]) _aQ.push(sMsg);
+            if (sMsg != _aQ[0]) _aQ.push(sMsg); // debounce
             if (_aQ.length == 1) {
                 _fOpen();
             }
