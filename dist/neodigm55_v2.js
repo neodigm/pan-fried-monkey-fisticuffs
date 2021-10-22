@@ -1,3 +1,10 @@
+<ltdc-snackbar class="l-snackbar" role="alert"><!--  Component Begin  -->
+  <section id="js-snackbar__id" class="snackbar__cont snackbar__cont--hide" aria-live="polite" aria-atomic="true">
+      <div class="snackbar__progbar"></div>
+      <p class="snackbar__msg"></p>
+  </section>
+</ltdc-snackbar><!--  Component End  -->
+
 // neodigm 55 JS v1.0.2 | Scott C. Krause | neodigm | Gamefried JavaScript Framework
 
 var neodigm = {};
