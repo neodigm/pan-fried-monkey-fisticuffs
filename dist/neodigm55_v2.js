@@ -1,9 +1,9 @@
-<ltdc-snackbar class="l-snackbar" role="alert"><!--  Component Begin  -->
+<neodigm-snackbar class="l-snackbar" role="alert"><!--  Component Begin  -->
   <section id="js-snackbar__id" class="snackbar__cont snackbar__cont--hide" aria-live="polite" aria-atomic="true">
       <div class="snackbar__progbar"></div>
       <p class="snackbar__msg"></p>
   </section>
-</ltdc-snackbar><!--  Component End  -->
+</neodigm-snackbar><!--  Component End  -->
 
 var neodigmSnack = (function(_d, eID) {
     var _nTimeout = 5400, _aQ = [];
