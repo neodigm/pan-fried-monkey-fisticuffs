@@ -1,6 +1,7 @@
 # pan-fried-monkey-fisticuffs
 A gamified vanilla JavaScript microinteraction library for those who defiantly think for themselves ⭐ Star it!
 
+Creative ⚡ Business ⚡ Technical Agility
 ---
 #
 [Portfolio Blog](https://www.theScottKrause.com) |
