@@ -2,6 +2,7 @@
 A gamified vanilla JavaScript microinteraction library for those who defiantly think for themselves ⭐ Star it!
 
 Creative ⚡ Business ⚡ Technical Agility
+DataVis 👁️ UX 🍭 PWA 👁️ ThreeJS ✨ Vue  🚀 alpine.js 🌶️ htmx
 ---
 #
 [Portfolio Blog](https://www.theScottKrause.com) |
