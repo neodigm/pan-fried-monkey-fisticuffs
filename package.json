@@ -40,7 +40,7 @@
     "autoprefixer": "^10.0.1",
     "aws-amplify": "^6.4.4",
     "aws-sdk": "^2.814.0",
-    "axios": "^1.6.0",
+    "axios": "^1.7.7",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
